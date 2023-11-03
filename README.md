@@ -9,7 +9,7 @@ Unix shell built with C
 - Github: [@paulzay](https://github.com/paulzay)
 
 👤 **Samuel Njuguna**
-- Github: [@paulzay](https://github.com/samuelalfred3)
+- Github: [@samuelalfred3](https://github.com/samuelalfred3)
 
 ## Show your support
 
