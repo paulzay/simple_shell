@@ -7,7 +7,7 @@
 void _isatty(void)
 {
 	if (isatty(STDIN_FILENO))
-		_puts("myPrompt$ ");
+		write(STDOUT_FILENO, "myPrompt$ ", 10);
 }
 
 /**
@@ -22,7 +22,7 @@ void _EOF(int len, char *buff)
 	{
 		if (isatty(STDIN_FILENO))
 		{
-			_puts("\n");
+			write(STDOUT_FILENO, "\n", 1);
 			free(buff);
 		}
 		exit(0);
