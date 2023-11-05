@@ -4,7 +4,7 @@
  * _isatty - checks whether the standard input is connected to a terminal 
  */
 
-void _isatty(void)
+void _myPrompt(void)
 {
 	if (isatty(STDIN_FILENO))
 		write(STDOUT_FILENO, "myPrompt$ ", 10);
@@ -15,7 +15,7 @@ void _isatty(void)
  * @len: returns the value of getline function
  * @buff: is the buffer
  */
-void _EOF(int len, char *buff)
+void end_of_file(int len, char *buff)
 {
 	(void)buff;
 	if (len == -1)
