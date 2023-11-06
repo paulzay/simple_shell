@@ -7,6 +7,7 @@
 
 int main(void)
 {
+	/*
 	char *user_input = prompt_and_input("Enter your name: ");
 	if (user_input != NULL)
 	{
@@ -29,5 +30,11 @@ int main(void)
 		  end_of_file(len, buff);
 		  free(buff);
 	  }
-	  return (0);
+	  */
+	while (true)
+	{
+		_myPrompt();
+		*read_user_input();
+	}
+	return (0);
 }

@@ -1,13 +1,9 @@
-#include <stdio.h>
+#include "shell.h"
 
-char *prompt_and_input(const char *prompt)
+char *read_user_input()
 {
 	char *user_input = NULL;
 	size_t user_input_size = 0;
-
-	printf("%s", prompt);
-	fflush(stdout);
-
 
 	getline(&user_input, &user_input_size, stdin);
 

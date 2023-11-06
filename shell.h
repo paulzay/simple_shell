@@ -1,6 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -10,6 +11,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <stddef.h>
-char *prompt_and_input(const char *prompt);
+char *read_user_input();
+void printer(char *c);
+void _myPrompt(void);
 
 #endif
