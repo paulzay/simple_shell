@@ -10,5 +10,6 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <stddef.h>
+char *prompt_and_input(const char *prompt);
 
 #endif

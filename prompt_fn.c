@@ -11,7 +11,7 @@ char *prompt_and_input(const char *prompt)
 
 	getline(&user_input, &user_input_size, stdin);
 
-	if (user_input[user_input_size - 1] == '\n)
+	if (user_input[user_input_size - 1] == '\n')
 		user_input[user_input_size - 1] = '\0';
 
 	return (user_input);
