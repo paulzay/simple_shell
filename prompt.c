@@ -7,7 +7,7 @@
 void _myPrompt(void)
 {
 	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "myPrompt$ ", 10);
+		write(STDOUT_FILENO, "$ ", 3);
 }
 
 /**
