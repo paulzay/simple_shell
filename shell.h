@@ -58,5 +58,7 @@ int _strlen(char *str);
 char **tokenise(char *str, char delimiter);
 void exec(char **argv);
 char *command();
+int my_putchar(char c);
+void my_puts(char *str);
 
 #endif
