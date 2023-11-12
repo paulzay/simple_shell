@@ -22,8 +22,21 @@ void my_exit(char **arv)
 		freearv(arv);
 		exit((int)n);
 	}
-	for (i = 0; arv[i]; i++)
+	freearv(arv);
+	exit(0);
+}
+
+/**
+ * freearv - this frees the array of pointers arv
+ * @arv: array of pointers
+ */
+
+void freearv(char **arv)
+{
+	if (!arv)
+		return;
+	for (int i = 0; arv[i]; i++)
 		free(arv[i]);
 	free(arv);
-	exit(0);
+
 }

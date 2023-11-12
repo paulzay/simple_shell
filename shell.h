@@ -13,6 +13,7 @@
 #include <stddef.h>
 #include <signal.h>
 #include <sys/stat.h>
+#include <limits.h>
 
 void _myPrompt(void);
 int _strlen(char *str);
@@ -22,5 +23,6 @@ char *command();
 int my_putchar(char c);
 void my_puts(char *str);
 void my_exit(char **arv);
+void freearv(char **arv);
 
 #endif
