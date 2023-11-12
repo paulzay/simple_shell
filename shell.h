@@ -24,5 +24,7 @@ int my_putchar(char c);
 void my_puts(char *str);
 void my_exit(char **arv);
 void freearv(char **arv);
+char *_which(const char *command);
+char *_getenv(char *name);
 
 #endif

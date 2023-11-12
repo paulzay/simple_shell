@@ -8,15 +8,21 @@
 void exec(char **argv)
 {
 	int child_id;
+  char *envp[] = {_getenv(argv[0]), NULL};
 
 	if (argv[0] && strlen(argv[0]) < 2) {
 		return;
 	}
+
+  char *executable = _which(argv[0]);
+  if (executable == NULL)
+     printf("Executable not found: ls\n");
+
 	child_id = fork();
 	if (child_id == 0)
 	{
-		char *args[] = { argv[0], NULL };
-		execve(argv[0], args, NULL);
+		// char *args[] = { argv[0], NULL };
+		execve(executable, argv, envp);
 		perror(argv[0]);
 		exit(1);
 	}
