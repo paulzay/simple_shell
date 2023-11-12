@@ -16,7 +16,9 @@ void exec(char **argv)
 
   char *executable = _which(argv[0]);
   if (executable == NULL)
+  {
      printf("Executable not found: ls\n");
+  }
    else
    {
       child_id = fork();
