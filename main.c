@@ -2,7 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-  // print_path_directories();
   while (1)
   {     
     _myPrompt();
