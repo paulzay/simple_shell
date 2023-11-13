@@ -10,10 +10,9 @@ char **tokenise(char *str, char delimiter) {
 
   token = strtok(str, &delimiter);
   while (token != NULL) {
-    // Check for trailing newline character
     last_char = token + _strlen(token) - 1;
     if (*last_char == '\n') {
-      *last_char = '\0'; // Replace newline with null terminator
+      *last_char = '\0';
     }
 
     tokens[num_tokens++] = token;

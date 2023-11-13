@@ -8,21 +8,25 @@
 void exec(char **argv)
 {
 	int child_id;
-  char *envp[] = {_getenv(argv[0]), NULL};
+  char *executable;
+  /*
+  char *path = _getenv(argv[0]);
 
+  char *envp[] = {path, NULL};
+  */
 	if (argv[0] && strlen(argv[0]) < 2) {
 		return;
 	}
 
-  char *executable = _which(argv[0]);
-  if (executable !=NULL)
+  executable = _which(argv[0]);
+  if (executable != NULL)
   {
     child_id = fork();
 
     if (child_id == 0)
     {
-      // char *args[] = { argv[0], NULL };
-      execve(executable, argv, envp);
+      /* char *args[] = { argv[0], NULL }; */
+      execve(executable, argv, NULL);
       perror(argv[0]);
       exit(1);
     }

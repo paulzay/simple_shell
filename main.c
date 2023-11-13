@@ -1,14 +1,16 @@
 #include "shell.h"
 
-int main(int argc, char *argv[])
+int main()
 {
+  char *user_input;
+  char **tokens;
   while (1)
   {     
     _myPrompt();
     
-    char *user_input = command();
+    user_input = command();
 
-    char **tokens = tokenise(user_input, ' ');
+    tokens = tokenise(user_input, ' ');
 
     exec(tokens);
 
