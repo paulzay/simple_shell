@@ -27,4 +27,6 @@ void freearv(char **arv);
 char *_which(const char *command);
 char *_getenv(char *name);
 
+extern char **environ;
+
 #endif
