@@ -18,6 +18,10 @@ int main()
 			{
 				my_exit(tokens);
 			}
+      else if (strcmp(tokens[0], "env") == 0)
+      {
+        _env();
+      }
 			else
 			{
 				exec(tokens);

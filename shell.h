@@ -26,7 +26,6 @@ void my_exit(char **arv);
 void freearv(char **arv);
 char *_which(const char *command);
 char *_getenv(char *name);
-
-extern char **environ;
+void _env();
 
 #endif

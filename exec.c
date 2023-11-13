@@ -8,17 +8,22 @@
 void exec(char **argv)
 {
 	int child_id;
-  char *executable;
+  char *executable ;
   /*
   char *path = _getenv(argv[0]);
 
   char *envp[] = {path, NULL};
   */
-	if (argv[0] && strlen(argv[0]) < 2) {
+	if (argv[0] && _strlen(argv[0]) < 2) {
 		return;
 	}
 
   executable = _which(argv[0]);
+
+  if (executable == NULL)
+  {
+    printf("hsh %s: command not found\n", argv[0]);
+  }
   if (executable != NULL)
   {
     child_id = fork();
