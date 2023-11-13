@@ -6,7 +6,6 @@
  */
 void my_exit(char **arv)
 {
-	int i;
 	long n;
 
 	if (arv[1])
@@ -33,9 +32,12 @@ void my_exit(char **arv)
 
 void freearv(char **arv)
 {
+	int i;
+
 	if (!arv)
 		return;
-	for (int i = 0; arv[i]; i++)
+	
+	for (i = 0; arv[i]; i++)
 		free(arv[i]);
 	free(arv);
 
