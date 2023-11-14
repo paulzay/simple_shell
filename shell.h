@@ -15,6 +15,8 @@
 #include <sys/stat.h>
 #include <limits.h>
 
+#define BUFFER_SIZE 1024
+
 void _myPrompt(void);
 int _strlen(char *str);
 char **tokenise(char *str, char delimiter);
@@ -27,5 +29,6 @@ void freearv(char **arv);
 char *_which(const char *command);
 char *_getenv(char *name);
 void _env();
+char *my_getline(void);
 
 #endif

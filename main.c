@@ -7,7 +7,7 @@ int main()
 	while (1)
 	{
 		_myPrompt();
-		user_input = command();
+		user_input = my_getline();
 
 		if (user_input != NULL)
 		{
