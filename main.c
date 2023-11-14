@@ -3,7 +3,7 @@
 int main()
 {
 	char *user_input;
-       	char **tokens;
+  char **tokens;
 	while (1)
 	{
 		_myPrompt();
@@ -30,6 +30,10 @@ int main()
 			free(tokens);
 			free(user_input);
 		}
+    else
+    {
+      continue;
+    }
 	}
 	return (0);
 }
