@@ -6,23 +6,25 @@
  */
 void my_exit(char **arv)
 {
-	long n;
+	int status = 0;
 
-	if (arv[1])
+	if (arv[1] != NULL)
 	{
 		char *endptr;
-		n = strtol(arv[1], &endptr, 10);
-		if (*endptr != '\0' || n < INT_MIN || n > INT_MAX)
+		long n = strtol(arv[1], &endptr, 10);
+
+		if (*endptr != '\0' || n > INT_MAX || n < INT_MIN)
 		{
 			puts("Invalid argument");
-			freearv(arv);
-			exit(2);
+			status = 2;
 		}
-		freearv(arv);
-		exit((int)n);
+		else
+		{
+			status = (int)n;
+		}
 	}
 	freearv(arv);
-	exit(0);
+	exit(status);
 }
 
 /**
@@ -36,9 +38,11 @@ void freearv(char **arv)
 
 	if (!arv)
 		return;
-	
-	for (i = 0; arv[i]; i++)
-		free(arv[i]);
-	free(arv);
 
+	for (i = 0; arv[i]; i++)
+	{
+		if (arv[i])
+			free(arv[i]);
+	}
+	free(arv);
 }
