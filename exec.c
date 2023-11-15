@@ -11,23 +11,15 @@ void exec(char **argv)
 	char *executable;
 	int status;
 
+	executable = _which(argv[0]);
+
 	child_id = fork();
 
 	if (child_id == 0)
 	{
-		executable = _which(argv[0]);
-		if (executable != NULL)
-		{
-			execve(executable, argv, NULL);
-			perror(argv[0]);
-			exit(1);
-		}
-		else
-		{
-			perror(argv[0]);
-			exit(1);
-		}
-
+		execve(argv[0], argv, NULL);
+		perror(argv[0]);
+		exit(1);
 	}
 	else if (child_id > 0)
 	{
