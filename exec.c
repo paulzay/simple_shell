@@ -12,16 +12,12 @@ void exec(char **argv)
 	int status;
 
 	executable = _which(argv[0]);
-	if (executable == NULL)
-	{
-		perror(argv[0]);
-	}
 
 	child_id = fork();
 
 	if (child_id == 0)
 	{
-		execve(executable, argv, NULL);
+		execve(argv[0], argv, NULL);
 		perror(argv[0]);
 		exit(1);
 	}
