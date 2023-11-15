@@ -1,14 +1,17 @@
 #include "shell.h"
-#define BUFFER_SIZE 1024
-
+/**
+ * my_getline - custom getline function
+ * Return: char
+*/
 char *my_getline(void)
 {
 	static char buffer[BUFFER_SIZE];
-	static int index = 0;
-	static int bytesRead = 0;
+	static int index;
+	static int bytesRead;
 	char *line = NULL;
 	int lineIndex = 0;
 	char currentChar;
+	char *temp;
 
 	while (1)
 	{
@@ -24,11 +27,11 @@ char *my_getline(void)
 		currentChar = buffer[index++];
 		if (lineIndex % BUFFER_SIZE == 0)
 		{
-			char *temp = realloc(line, lineIndex + BUFFER_SIZE);
+			temp = realloc(line, lineIndex + BUFFER_SIZE);
 			if (temp == NULL)
 			{
 				free(line);
-				return NULL;
+				return (NULL);
 			}
 			line = temp;
 		}
@@ -36,12 +39,10 @@ char *my_getline(void)
 		if (currentChar == '\n')
 		{
 			line[lineIndex - 1] = '\0';
-			return line;
+			return (line);
 		}
 	}
 	if (line != NULL)
-	{
 		free(line);
-	}
-	return NULL;
+	return (NULL);
 }

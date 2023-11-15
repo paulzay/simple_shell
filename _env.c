@@ -1,14 +1,17 @@
 #include "shell.h"
 
-void _env() {
-	extern char **environ;
-	int i,j;
+/**
+ * _env - function to get the environment
+ * Return: no return
+*/
+void _env(void)
+{
+	char **env_var = environ;
 
-	for (i = 0; environ[i]; i++)
+	while (*env_var)
 	{
-		for (j = 0; environ[i][j]; j++)
-			;
-		write(STDOUT_FILENO, environ[i], j);
+		write(STDOUT_FILENO, *env_var, strlen(*env_var));
 		write(STDOUT_FILENO, "\n", 1);
+		env_var++;
 	}
 }

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _myPrompt - checks whether the standard input is connected to a terminal 
+ * _myPrompt - checks whether the standard input is connected to a terminal
  */
 
 void _myPrompt(void)
