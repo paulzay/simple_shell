@@ -1,9 +1,15 @@
 #include "shell.h"
 
-int main()
+/**
+ * main - entry point of the program
+ * Return: 0
+*/
+
+int main(void)
 {
 	char *user_input;
-  char **tokens;
+	char **tokens;
+
 	while (1)
 	{
 		_myPrompt();
@@ -18,10 +24,10 @@ int main()
 			{
 				my_exit(tokens);
 			}
-      else if (strcmp(tokens[0], "env") == 0)
-      {
-        _env();
-      }
+			else if (strcmp(tokens[0], "env") == 0)
+			{
+				_env();
+			}
 			else
 			{
 				exec(tokens);
@@ -30,10 +36,10 @@ int main()
 			free(tokens);
 			free(user_input);
 		}
-    else
-    {
-      continue;
-    }
+		else
+		{
+			continue;
+		}
 	}
 	return (0);
 }
