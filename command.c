@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * command - getting the user input
+ * Return: the command
+*/
+
 char *command()
 {
 	char *user_input = NULL;

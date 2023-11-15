@@ -1,19 +1,18 @@
 #include "shell.h"
-
 /**
  * my_putchar - writes the character c to stdout
  * @c: The character to print
- *
- * Return: On success 1. On error, -1 is returned, and errno is set appropriately.
+ * Return: On success 1. On error,
+ * -1 is returned, and errno is set appropriately.
  */
 int my_putchar(char c)
 {
 	if (write(1, &c, 1) == -1)
 	{
 		perror("Error writing to stdout");
-		return -1;
+		return (-1);
 	}
-	return 1;
+	return (1);
 }
 
 /**
