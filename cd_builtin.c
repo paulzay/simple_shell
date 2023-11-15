@@ -3,9 +3,11 @@
 void changeDirectory(char *directory)
 {
 	char newDir[MAX_PATH];
+
 	if (directory == NULL || strlen(directory) == 0)
 	{
 		const char *homeDir = getenv("HOME");
+
 		if (homeDir == NULL)
 		{
 			fprintf(stderr, "cd: HOME not set\n");
@@ -16,6 +18,7 @@ void changeDirectory(char *directory)
 	else if (strcmp(directory, "-") == 0)
 	{
 		const char *previousDir = getenv("OLDPWD");
+
 		if (previousDir == NULL)
 		{
 			fprintf(stderr, "cd: OLDPWD not set\n");
@@ -28,6 +31,7 @@ void changeDirectory(char *directory)
 		strcpy(newDir, directory);
 	}
 	char oldDir[MAX_PATH];
+
 	if (getcwd(oldDir, sizeof(oldDir)) == NULL)
 	{
 		perror("getcwd");
