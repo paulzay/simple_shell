@@ -17,6 +17,7 @@ int main(void)
 
 		if (user_input != NULL)
 		{
+			handle_commands(user_input);
 			tokens = tokenise(user_input, ' ');
 			if (tokens != NULL && tokens[0] != NULL)
 		{
