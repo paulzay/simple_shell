@@ -1,23 +1,39 @@
 #include "shell.h"
 
+char *append_bin(char *input) {
+  if (strncmp(input, "/bin/", 5) == 0) {
+    return input;
+  }
+
+  int input_len = strlen(input);
+  char *output = malloc(input_len + 6);
+  strcpy(output, "/bin/");
+  strcat(output, input);
+  return output;
+}
+
 /**
  * exec - this executes a command
  * @argv: is an array of arguments
  */
 
+
 void exec(char **argv)
 {
 	int child_id;
-	char *executable;
 	int status;
+	char *path;
 
-	executable = _which(argv[0]);
+	if (!argv || !argv[0])
+		return;
+
+	path = append_bin(argv[0]);
 
 	child_id = fork();
 
 	if (child_id == 0)
 	{
-		execve(executable, argv, NULL);
+		execve(path, argv, environ);
 		perror(argv[0]);
 		exit(1);
 	}
