@@ -17,7 +17,7 @@ void exec(char **argv)
 
 	if (child_id == 0)
 	{
-		execve(argv[0], argv, NULL);
+		execve(executable, argv, NULL);
 		perror(argv[0]);
 		exit(1);
 	}
