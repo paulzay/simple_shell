@@ -1,17 +1,5 @@
 #include "shell.h"
 
-char *append_bin(char *input) {
-  if (strncmp(input, "/bin/", 5) == 0) {
-    return input;
-  }
-
-  int input_len = strlen(input);
-  char *output = malloc(input_len + 6);
-  strcpy(output, "/bin/");
-  strcat(output, input);
-  return output;
-}
-
 /**
  * exec - this executes a command
  * @argv: is an array of arguments
@@ -20,7 +8,7 @@ char *append_bin(char *input) {
 
 void exec(char **argv)
 {
-	int child_id;
+	pid_t child_id;
 	int status;
 	char *path;
 
