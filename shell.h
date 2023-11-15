@@ -34,5 +34,6 @@ char *_getenv(char *name);
 void _env(void);
 char *my_getline(void);
 void changeDirectory(char *directory);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 #endif

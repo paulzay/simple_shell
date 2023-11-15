@@ -34,7 +34,7 @@ int main(void)
 			}
 		}
 			free(tokens);
-			free(user_input);
+			user_input = _realloc(user_input, strlen(user_input), 0);
 		}
 		else
 		{
