@@ -28,17 +28,6 @@ int main(void)
 			{
 				_env();
 			}
-			else if (strcmp(tokens[0], "cd") == 0)
-			{
-				if (tokens[1] != NULL)
-				{
-					changeDirectory(tokens[1]);
-				}
-				else
-				{
-					changeDirectory(NULL);
-				}
-			}
 			else
 			{
 				exec(tokens);
