@@ -16,6 +16,8 @@
 #include <limits.h>
 
 #define BUFFER_SIZE 1024
+#define MAX_PATH 4096
+
 extern char **environ;
 
 void _myPrompt(void);
@@ -31,5 +33,6 @@ char *_which(const char *command);
 char *_getenv(char *name);
 void _env(void);
 char *my_getline(void);
+void changeDirectory(char *directory);
 
 #endif
