@@ -4,7 +4,7 @@
  * @name: the variable name
  * Return: environment string
 */
-cchar *_getenv(char *name)
+char *_getenv(char *name)
 {
 	char **env_var = environ;
 

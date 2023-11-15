@@ -29,7 +29,7 @@ void my_exit(char **arv);
 void freearv(char **arv);
 char *_which(const char *command);
 char *_getenv(char *name);
-void _env();
+void _env(void);
 char *my_getline(void);
 
 #endif
