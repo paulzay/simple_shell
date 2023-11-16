@@ -23,7 +23,14 @@ int main(void)
 		tokens = tokenise(user_input, ' ');
 		if (tokens != NULL && tokens[0] != NULL)
 		{
-			exec(tokens);
+			if (strcmp(tokens[0], "exit") == 0)
+			{
+				my_exit(tokens);
+			}
+			else
+			{
+				exec(tokens);
+			}
 		}
 		else
 		{
@@ -38,9 +45,10 @@ int main(void)
 				tokens[0] = path;
 				exec(tokens);
 			}
+		
 		}
 	}
-	free(tokens);
+	freearv(tokens);
 	free(user_input);
 	return (0);
 }
