@@ -12,7 +12,7 @@ int main(void)
 	ssize_t chars = 0;
 	char *path;
 	size_t size = 0;
-	
+
 	signal(SIGINT, signal_handler);
 
 	while (chars != EOF)
@@ -38,7 +38,6 @@ int main(void)
 				tokens[0] = path;
 				exec(tokens);
 			}
-		
 		}
 	}
 	free(tokens);
