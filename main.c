@@ -1,15 +1,12 @@
 #include "shell.h"
-
 /**
  * main - entry point of the program
  * Return: 0
 */
 int main(void)
 {
-	char *user_input;
-	char **tokens;
+	char *user_input, **tokens, *path;
 	ssize_t chars = 0;
-	char *path;
 	size_t size = 0;
 
 	signal(SIGINT, signal_handler);
@@ -24,11 +21,15 @@ int main(void)
 			if (strcmp(tokens[0], "exit") == 0)
 			{
 				my_exit(tokens);
-			} else
-			{
-				exec(tokens);
 			}
-		} else
+			else if (strcmp(tokens[0], "env") == 0)
+			{
+				_env();
+			}
+			else
+				exec(tokens);
+		}
+		else
 		{
 			path = _which(tokens[0]);
 			if (path)
@@ -43,7 +44,7 @@ int main(void)
 			}
 		}
 	}
-	freearv(tokens);
+	free(tokens);
 	free(user_input);
 	return (0);
 }
