@@ -1,38 +1,40 @@
 #include "shell.h"
+/**
+ * changeDirectory - Change the current working directory of the process.
+ * @directory: The target directory to change to.
+ *
+ * Return: void
+ */
 
 void changeDirectory(char *directory)
 {
 	char newDir[MAX_PATH];
+	char oldDir[MAX_PATH];
 
-	if (directory == NULL || strlen(directory) == 0)
+	const char *homeDir = getenv("HOME");
+	const char *previousDir = getenv("OLDPWD");
+
+	if (!directory || !strlen(directory))
 	{
-		const char *homeDir = getenv("HOME");
-
-		if (homeDir == NULL)
+		if (!homeDir)
 		{
 			fprintf(stderr, "cd: HOME not set\n");
 			return;
 		}
 		strcpy(newDir, homeDir);
-	}
-	else if (strcmp(directory, "-") == 0)
+	} else if (strcmp(directory, "-") == 0)
 	{
-		const char *previousDir = getenv("OLDPWD");
-
-		if (previousDir == NULL)
+		if (!previousDir)
 		{
 			fprintf(stderr, "cd: OLDPWD not set\n");
 			return;
 		}
 		strcpy(newDir, previousDir);
-	}
-	else
+	} else
 	{
 		strcpy(newDir, directory);
 	}
-	char oldDir[MAX_PATH];
-
-	if (getcwd(oldDir, sizeof(oldDir)) == NULL)
+	if (!getcwd(oldDir, sizeof(oldDir)))
 	{
 		perror("getcwd");
 		return;
@@ -42,14 +44,8 @@ void changeDirectory(char *directory)
 		perror("chdir");
 		return;
 	}
-	if (setenv("PWD", newDir, 1) != 0)
+	if (setenv("PWD", newDir, 1) != 0 || setenv("OLDPWD", oldDir, 1) != 0)
 	{
 		perror("setenv");
-		return;
-	}
-	if (setenv("OLDPWD", oldDir, 1) != 0)
-	{
-		perror("setenv");
-		return;
 	}
 }
