@@ -6,8 +6,8 @@
 char *my_getline(void)
 {
 	static char buffer[BUFFER_SIZE];
-	static int index = 0;
-	static int bytesRead = 0;
+	static int index;
+	static int bytesRead;
 	char *line = NULL;
 	int lineIndex = 0;
 	char currentChar;
@@ -32,8 +32,7 @@ char *my_getline(void)
 			{
 				free(line);
 				return (NULL);
-			}
-			line = temp;
+			} line = temp;
 		}
 		line[lineIndex++] = currentChar;
 		if (currentChar == '\n')
@@ -45,6 +44,5 @@ char *my_getline(void)
 	if (line != NULL)
 	{
 		free(line);
-	}
-	return (NULL);
+	} return (NULL);
 }
