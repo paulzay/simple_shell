@@ -5,7 +5,7 @@
  * Return: the command
 */
 
-char *command()
+char *command(void)
 {
 	char *user_input = NULL;
 	size_t user_input_size = 0;

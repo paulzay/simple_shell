@@ -1,7 +1,6 @@
 #ifndef _SHELL_H
 #define _SHELL_H
 
-#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +23,7 @@ void _myPrompt(void);
 int _strlen(char *str);
 char **tokenise(char *str, char delimiter);
 void exec(char **argv);
-char *command();
+char *command(void);
 int my_putchar(char c);
 void my_puts(char *str);
 void my_exit(char **arv);
@@ -39,4 +38,4 @@ void end_of_file(int len, char *buff);
 void signal_handler(int sig_num);
 char *append_bin(char *input);
 
-#endif
+#endif /* _SHELL_H */
